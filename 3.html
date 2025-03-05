@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cactus Drawing</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4e0c8;
+        }
+        canvas {
+            background-color: #f4e0c8;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="cactusCanvas" width="300" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById("cactusCanvas");
+        const ctx = canvas.getContext("2d");
+        
+        ctx.beginPath();
+        ctx.arc(150, 100, 40, 0, Math.PI * 2);
+        ctx.fillStyle = "#d9e8e3";
+        ctx.fill();
+        ctx.closePath();
+        
+        ctx.beginPath();
+        ctx.arc(150, 120, 40, 0, Math.PI, true);
+        ctx.fillStyle = "#b0aaa3";
+        ctx.fill();
+        ctx.closePath();
+    
+        ctx.fillStyle = "#cc6655";
+        ctx.beginPath();
+        ctx.moveTo(80, 300);
+        ctx.lineTo(220, 300);
+        ctx.lineTo(200, 350);
+        ctx.lineTo(100, 350);
+        ctx.closePath();
+        ctx.fill();
+        
+        ctx.fillStyle = "#56a85e";
+        ctx.beginPath();
+        ctx.moveTo(100, 250);
+        ctx.lineTo(140, 280);
+        ctx.lineTo(80, 310);
+        ctx.lineTo(60, 290);
+        ctx.closePath();
+        ctx.fill();
+        
+        ctx.fillStyle = "white";
+        for (let i = 0; i < 5; i++) {
+            ctx.beginPath();
+            ctx.arc(90 + i * 10, 270 + (i % 2) * 10, 3, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        
+        ctx.fillStyle = "#228b22";
+        ctx.beginPath();
+        ctx.ellipse(160, 230, 40, 80, 0, 0, Math.PI * 2);
+        ctx.fill();
+        
+        ctx.strokeStyle = "black";
+        for (let i = -30; i <= 30; i += 15) {
+            ctx.beginPath();
+            ctx.moveTo(160 + i, 150);
+            ctx.lineTo(160 + i, 160);
+            ctx.stroke();
+        }
+    </script>
+</body>
+</html>

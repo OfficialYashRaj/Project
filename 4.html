@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotions on Canvas</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        canvas {
+            border: 2px solid black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="emotionCanvas" width="500" height="300"></canvas>
+
+    <script>
+        const canvas = document.getElementById("emotionCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const emotions = [
+            { x: 80, y: 80, color: "#FFD93D", mood: "Joy", mouth: "smile" },
+            { x: 200, y: 80, color: "#6DC46D", mood: "Trust", mouth: "neutral" },
+            { x: 320, y: 80, color: "#5AA9E6", mood: "Fear", mouth: "frown" },
+            { x: 440, y: 80, color: "#72E0E3", mood: "Surprise", mouth: "open" },
+            { x: 80, y: 200, color: "#507DBC", mood: "Sadness", mouth: "frown" },
+            { x: 200, y: 200, color: "#A442F1", mood: "Disgust", mouth: "angry" },
+            { x: 320, y: 200, color: "#D7263D", mood: "Anger", mouth: "angry" },
+            { x: 440, y: 200, color: "#E98E2C", mood: "Anticipation", mouth: "neutral" }
+        ];
+
+        function drawFace(x, y, color, mouth) {
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.arc(x, y, 40, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.fillStyle = "#000";
+            ctx.beginPath();
+            ctx.arc(x - 15, y - 10, 5, 0, Math.PI * 2);
+            ctx.arc(x + 15, y - 10, 5, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.beginPath();
+            if (mouth === "smile") {
+                ctx.arc(x, y + 10, 15, 0, Math.PI);
+            } else if (mouth === "frown") {
+                ctx.arc(x, y + 20, 15, Math.PI, 0, true);
+            } else if (mouth === "open") {
+                ctx.arc(x, y + 15, 10, 0, Math.PI * 2);
+            } else if (mouth === "angry") {
+                ctx.moveTo(x - 10, y + 15);
+                ctx.lineTo(x + 10, y + 15);
+            } else { // Neutral
+                ctx.moveTo(x - 10, y + 15);
+                ctx.lineTo(x + 10, y + 15);
+            }
+            ctx.stroke();
+        }
+
+        function drawEmotions() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            emotions.forEach((emo) => {
+                drawFace(emo.x, emo.y, emo.color, emo.mouth);
+            });
+        }
+
+        canvas.addEventListener("click", function(event) {
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = event.clientX - rect.left;
+            const mouseY = event.clientY - rect.top;
+
+            emotions.forEach((emo) => {
+                const dx = mouseX - emo.x;
+                const dy = mouseY - emo.y;
+                if (Math.sqrt(dx * dx + dy * dy) < 40) {
+                    const moods = ["smile", "frown", "open", "angry", "neutral"];
+                    emo.mouth = moods[Math.floor(Math.random() * moods.length)];
+                    drawEmotions();
+                }
+            });
+        });
+
+        drawEmotions();
+    </script>
+</body>
+</html>

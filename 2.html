@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Number Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        label {
+            font-size: 16px;
+            color: #666;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #validationMessage {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #dc3545;
+        }
+
+        .valid {
+            color: green;
+        }
+
+        .invalid {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Register Number Validation</h2>
+        <label for="registerNumber">Enter Registration Number:</label>
+        <input type="text" id="registerNumber" name="registerNumber" placeholder="e.g., 23BCE1234">
+        <button id="validateBtn">Validate</button>
+        <p id="validationMessage"></p>
+    </div>
+
+    <script>
+        document.getElementById("validateBtn").addEventListener("click", function() {
+            var registerNumber = document.getElementById("registerNumber").value.trim();
+            var messageElement = document.getElementById("validationMessage");
+
+            var regex = /^(23)([A-Za-z]{3})(\d{4})$/;
+
+            var match = registerNumber.match(regex);
+
+            if (match) {
+                var validDepartments = ["BCE", "CSE", "EEE", "ECE", "IT", "ME", "CE"];
+                var department = match[2].toUpperCase(); 
+
+                if (validDepartments.includes(department)) {
+                    messageElement.textContent = "Valid Registration Number!";
+                    messageElement.className = "valid";
+                } else {
+                    messageElement.textContent = "Invalid Department Code!";
+                    messageElement.className = "invalid";
+                }
+            } else {
+                messageElement.textContent = "Invalid Register Number Format!";
+                messageElement.className = "invalid";
+            }
+        });
+    </script>
+
+</body>
+</html>

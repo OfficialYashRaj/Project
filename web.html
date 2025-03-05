@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background:url("https://images.freecreatives.com/wp-content/uploads/2016/04/Abstract-Blue-Web-Background.jpg");
+            color: #333;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+        .nav-links li {
+            margin: 0 15px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .sidebar {
+            width: 250px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .sidebar ul {
+            list-style: none;
+        }
+        .sidebar ul li {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            transition: 0.3s;
+        }
+        .sidebar ul li:hover {
+            background: #f0f0f0;
+            border-radius: 8px;
+        }
+        .sidebar ul li img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .feed {
+            flex: 1;
+            max-width: 600px;
+            margin-left: 20px;
+        }
+        .post {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+        .post:hover {
+            transform: scale(1.02);
+        }
+        .post h3 {
+            display: flex;
+            align-items: center;
+        }
+        .post h3 img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .like-btn {
+            background: #0072ff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .like-btn:hover {
+            background: #005bb5;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">MySocial</div>
+        <ul class="nav-links">
+            <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="message.html"><i class="fas fa-envelope"></i> Messages</a></li>
+            <li><a href="setting.html"><i class="fas fa-cog"></i> Settings</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Friends</h2>
+            <ul>
+                <li><img src="https://tse1.mm.bing.net/th?id=OIP.lcdOc6CAIpbvYx3XHfoJ0gHaF3&pid=Api&P=0&h=180" alt=""> User1</li>
+                <li><img src="https://tse1.mm.bing.net/th?id=OIP.lcdOc6CAIpbvYx3XHfoJ0gHaF3&pid=Api&P=0&h=180" alt=""> User2</li>
+                <li><img src="https://tse1.mm.bing.net/th?id=OIP.lcdOc6CAIpbvYx3XHfoJ0gHaF3&pid=Api&P=0&h=180" alt=""> User3</li>
+                <li><img src="https://tse1.mm.bing.net/th?id=OIP.lcdOc6CAIpbvYx3XHfoJ0gHaF3&pid=Api&P=0&h=180" alt=""> User4</li>
+                <li><img src="https://tse1.mm.bing.net/th?id=OIP.lcdOc6CAIpbvYx3XHfoJ0gHaF3&pid=Api&P=0&h=180" alt=""> User5</li>
+                <li><img src="https://tse1.mm.bing.net/th?id=OIP.lcdOc6CAIpbvYx3XHfoJ0gHaF3&pid=Api&P=0&h=180" alt=""> User6</li>
+            </ul>
+        </aside>
+        <main class="feed">
+            <div class="post"><h3><img src="https://tse1.mm.bing.net/th?id=OIP.lcdOc6CAIpbvYx3XHfoJ0gHaF3&pid=Api&P=0&h=180" alt="">User1</h3><p>Just finished reading a great book! 📖</p><button class="like-btn"><i class="fas fa-thumbs-up"></i> Like</button></div>
+            <div class="post"><h3><img src="https://tse1.mm.bing.net/th?id=OIP.lcdOc6CAIpbvYx3XHfoJ0gHaF3&pid=Api&P=0&h=180" alt="">User2</h3><p>Had an amazing weekend at the beach! 🌊</p><button class="like-btn"><i class="fas fa-thumbs-up"></i> Like</button></div>
+            <div class="post"><h3><img src="https://tse1.mm.bing.net/th?id=OIP.lcdOc6CAIpbvYx3XHfoJ0gHaF3&pid=Api&P=0&h=180" alt="">User3</h3><p>Excited about my new coding project! 💻</p><button class="like-btn"><i class="fas fa-thumbs-up"></i> Like</button></div>
+            <div class="post"><h3><img src="https://tse1.mm.bing.net/th?id=OIP.lcdOc6CAIpbvYx3XHfoJ0gHaF3&pid=Api&P=0&h=180" alt="">User4</h3><p>Just cooked a delicious meal! 🍲</p><button class="like-btn"><i class="fas fa-thumbs-up"></i> Like</button></div>
+            <div class="post"><h3><img src="https://tse1.mm.bing.net/th?id=OIP.lcdOc6CAIpbvYx3XHfoJ0gHaF3&pid=Api&P=0&h=180" alt="">User5</h3><p>Went hiking in the mountains! 🏔️</p><button class="like-btn"><i class="fas fa-thumbs-up"></i> Like</button></div>
+            <div class="post"><h3><img src="https://tse1.mm.bing.net/th?id=OIP.lcdOc6CAIpbvYx3XHfoJ0gHaF3&pid=Api&P=0&h=180" alt="">User6</h3><p>Enjoying a peaceful evening! 🌅</p><button class="like-btn"><i class="fas fa-thumbs-up"></i> Like</button></div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
